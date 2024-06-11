@@ -1,0 +1,1804 @@
+views:
+  - theme: Backend-selected
+    title: Grid layout
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: 33% 33% 33%
+      grid-template-areas: |
+        "header header header"
+        "sidebar main main"
+        "footer footer footer"
+        "level level level "
+        "lowest lowest lowest"
+    badges: []
+    cards:
+      - type: custom:mini-graph-card
+        card_mod:
+          style: |
+            ha-card { 
+              height: 104px;
+              border-width: 0px;
+              background-color: var(--primary-background-color);
+              }
+        entities:
+          - sensor.p1_meter_5c2faf0069d2_active_power
+        show:
+          icon: false
+          name: false
+          state: false
+        hours_to_show: 6
+        points_per_hour: 3.6
+        icon: none
+        name: null
+        view_layout:
+          grid-area: header
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              border-width: 0px;
+              background-color: transparent;
+              margin-bottum: 0px !important;
+              --title-spacing: 0px !important;
+              --secondary-text-color: #71DBD4 !important;
+              --primary-text-color: #71DBD4 !important
+              }
+              ha-card .header{
+                padding: 10px 0px 0px;
+              }
+        cards:
+          - type: custom:mushroom-title-card
+            title: Hello {{ user }}!
+            subtitle: >-
+              The house is using {{
+              states['sensor.p1_meter_5c2faf0069d2_active_power'].state }}w
+            card_mod:
+              style: |
+                ha-card {
+                  border-width: var(--primary-background-color);
+                  --primary-background-color: transparent) !important;
+                  margin-bottum: 0px !important;
+                  --title-padding: 0px 0px 0px !important;
+                  }
+                ha-card .header {
+                  padding-top: 0px !important;
+          - type: horizontal-stack
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  background-color: transparent;
+                  width: 133%
+                  }
+            cards:
+              - type: custom:mushroom-template-card
+                icon_color: '#C724B1'
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: 0px;
+                      background-color: transparent;
+                      }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:home
+              - type: custom:mushroom-template-card
+                icon_color: '#ff2975'
+                card_mod: null
+                style: |
+                  ha-card {
+                    border: 0px;
+                    background-color: transparent;
+                    }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:lightbulb-group-outline
+              - type: custom:mushroom-template-card
+                icon_color: '#00e78a'
+                card_mod: null
+                style: |
+                  ha-card {
+                    border: 0px;
+                    background-color: transparent;
+                    }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:atom
+              - type: custom:mushroom-template-card
+                icon_color: '#71DBD4'
+                card_mod: null
+                style: |
+                  ha-card {
+                    border: 0px;
+                    background-color: transparent;
+                    }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:audio-video
+        view_layout:
+          grid-area: header
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:mushroom-person-card
+            entity: person.veenkadeos
+            primary_info: none
+            icon_type: entity-picture
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  --primary-background-color: transparent);
+                  --spacing: 5px;
+                  --secondary-text-color: #71DBD4 !important;
+                  }
+          - type: custom:mushroom-person-card
+            entity: person.eline
+            primary_info: none
+            icon_type: entity-picture
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  --spacing: 5px;
+                  --secondary-text-color: #71DBD4 !important;
+                  }
+        card_mod:
+          style: |
+            ha-card {
+              --primary-background-color: transparent);
+              border: 0px;
+              width: 100%;
+              }
+        view_layout:
+          grid-area: sidebar
+      - type: custom:swipe-card
+        view_layout:
+          grid-area: main
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.spotify_nandir_cabolet
+            group: false
+            toggle_power: false
+            info: short
+            sound_mode: icon
+            source: icon
+            artwork: full-cover
+            scale: '.9'
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  width: 100%;
+                  height: 104px;
+                  --mmp-text-color: #71DBD4;
+                  --mmp-icon-color: purple !important;
+                  --paper-slider-knob-start-color: #C724B1;
+                  }
+                ha-icon {
+                  color: #71DBD4;
+                  }
+          - type: custom:mini-media-player
+            entity: media_player.android_tv_192_168_0_237
+            group: false
+            toggle_power: false
+            info: short
+            sound_mode: icon
+            source: icon
+            artwork: full-cover
+            card_mod:
+              style: |
+                ha-card {
+                  --mmp-text-color: #71DBD4;
+                  border: 0px;
+                  width: 100%;
+                  height: 102px;
+                  --paper-slider-knob-start-color: #C724B1;
+                  } 
+                ha-icon {
+                  color: #71DBD4;
+                  }
+          - type: custom:mini-media-player
+            entity: media_player.onkyo_receiver
+            group: false
+            toggle_power: false
+            info: short
+            sound_mode: full
+            volume_stateless: true
+            source: icon
+            artwork: full-cover
+            card_mod:
+              style: |
+                ha-card {
+                  --mmp-text-color: #71DBD4;
+                  border: 0px;
+                  width: 100%;
+                  height: 102px;
+                  --paper-slider-knob-start-color: #C724B1;
+                  }
+                ha-icon {
+                  color: #71DBD4;
+                  }
+          - type: custom:mini-media-player
+            entity: media_player.slaapkamer_tv
+            group: false
+            toggle_power: false
+            info: short
+            sound_mode: icon
+            source: icon
+            artwork: full-cover
+            card_mod:
+              style: |
+                ha-card {
+                  --mmp-text-color: #71DBD4;
+                  border: 0px;
+                  width: 100%;
+                  height: 102px;
+                  --paper-slider-knob-start-color: #C724B1;
+
+                  }
+                ha-icon {
+                  color: #71DBD4;
+
+                  }
+      - type: custom:swipe-card
+        view_layout:
+          grid-area: footer
+        keyboard:
+          enabled: false
+          onlyInViewport: true
+        cards:
+          - type: shopping-list
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    border: 0px;
+                    max-height: 195px;
+                    overflow-y: scroll;
+                    background-color: var(--primary-background-color);
+                    box-shadow: 0px 0px 0px 0px var(--primary-background-color);
+                    color: #C724B1 !important;
+                    --mdc-checkbox-unchecked-color: #C724B1;
+                    --primary-text-color: #C724B1 !important;
+                    --mdc-text-field-idle-line-color: #C724B1;
+                    }
+                ha-textfield:
+                  $: |
+                    input {
+                      color: #71DBD4 !important;
+                      }
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.gang_light
+            name: Gang
+            icon: mdi:coat-rack
+            layout: vertical
+            secondary_info: none
+            use_light_color: true
+            show_brightness_control: false
+            collapsible_controls: false
+            fill_container: false
+            double_tap_action:
+              action: none
+            tap_action:
+              action: toggle
+            card_mod:
+              style: |
+                ha-card {
+                  --primary-text-color: #71DBD4 !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: ''
+            icon: mdi:desktop-classic
+            layout: vertical
+            secondary_info: none
+            use_light_color: true
+            show_brightness_control: false
+            collapsible_controls: false
+            fill_container: false
+            double_tap_action:
+              action: none
+            name: Kantoor
+          - type: custom:mushroom-light-card
+            entity: light.ledvance_cla60_rgbw_z3_light
+            icon: mdi:shower
+            layout: vertical
+            secondary_info: none
+            use_light_color: true
+            show_brightness_control: false
+            collapsible_controls: false
+            fill_container: false
+            double_tap_action:
+              action: call-service
+              service: script.eline_haar_douche_knop
+              data: {}
+              target: {}
+            name: Badkamer
+            card_mod:
+              style: |
+                ha-card {
+                  --primary-text-color: #71DBD4 !important;
+                  }
+        view_layout:
+          grid-area: lowest
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.woonkamer
+            name: Woonkamer
+            icon: mdi:bed-king-outline
+            layout: vertical
+            secondary_info: none
+            use_light_color: true
+            show_brightness_control: false
+            collapsible_controls: false
+            fill_container: false
+            double_tap_action:
+              action: call-service
+              service: cover.toggle
+              data: {}
+              target:
+                device_id: 18e20d701cedd48c1742d274e4c304c1
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              target:
+                device_id:
+                  - 173b7b75f9550742e714c7f461073558
+              data:
+                dismissable: true
+                autoclose: false
+                content:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:mushroom-template-card
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:vacuum-outline
+                          layout: vertical
+                          icon_color: '#C724B1'
+                          badge_icon: ''
+                        - type: custom:mushroom-template-card
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:lightbulb
+                          layout: vertical
+                          fill_container: false
+                          icon_color: '#71DBD4'
+                        - type: custom:mushroom-template-card
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:music
+                          layout: vertical
+                          tap_action:
+                            action: call-service
+                            service: shell_command.morning_playlist
+                            data: {}
+                            target: {}
+                          icon_color: '#C724B1'
+                    - type: custom:mushroom-chips-card
+                      chips:
+                        - type: entity
+                          entity: cover.gordijnen_curtain
+                          tap_action:
+                            action: call-service
+                            service: cover.close_cover
+                            data: {}
+                            target:
+                              entity_id: cover.gordijnen_curtain
+                          content_info: none
+                          icon: mdi:curtains-closed
+                        - type: entity
+                          entity: cover.gordijnen_curtain
+                          content_info: none
+                          icon: mdi:pause
+                          tap_action:
+                            action: call-service
+                            service: cover.stop_cover
+                            data: {}
+                            target:
+                              entity_id: cover.gordijnen_curtain
+                        - type: entity
+                          entity: cover.gordijnen_curtain
+                          content_info: none
+                          icon: mdi:curtains
+                          tap_action:
+                            action: call-service
+                            service: cover.open_cover
+                            data: {}
+                            target:
+                              entity_id: cover.gordijnen_curtain
+                      alignment: justify
+                    - type: custom:mushroom-light-card
+                      entity: light.woonkamer
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Woonkamer
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lct015_huelight_3
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Bank
+                    - type: custom:mushroom-light-card
+                      entity: light.ecodim_bv_ecodim_zigbee_3_0_light
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Tafel
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lct015_huelight_2
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Plant
+                    - type: custom:mushroom-light-card
+                      entity: light.twisted_filament_st64
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Lamp
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lct015_huelight
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Lampje
+                    - type: custom:mushroom-light-card
+                      entity: light.woonkamer
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                    - type: custom:mushroom-light-card
+                      entity: light.deur
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Deur
+                    - type: custom:mushroom-light-card
+                      entity: light.kast
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Kast
+                    - type: custom:mushroom-light-card
+                      entity: light.sta_lamp
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Sta Lamp
+                    - type: custom:mushroom-light-card
+                      entity: light.sta_lamp_3
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Sta Lamp
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background-color: transparent 30%:
+                        max-height: 200px;
+                        overflow-y: scroll !important;
+                        --primary-text-color: #71DBD4 !important;
+                        }
+                size: fullscreen
+            hold_action:
+              action: fire-dom-event
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  --primary-text-color: #71DBD4 !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: light.keuken_licht
+            name: Keuken
+            icon: mdi:bed-king-outline
+            layout: vertical
+            secondary_info: none
+            use_light_color: true
+            show_brightness_control: false
+            collapsible_controls: false
+            fill_container: false
+            double_tap_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              data:
+                content:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:mushroom-template-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background-color: transparent !important;
+                                }
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:vacuum-outline
+                          layout: vertical
+                          icon_color: '#00e78a'
+                          badge_icon: ''
+                        - type: custom:mushroom-template-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background-color: transparent !important;
+                                }
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:lightbulb
+                          layout: vertical
+                          fill_container: false
+                          icon_color: '#00e78a'
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                    - type: custom:mushroom-chips-card
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            --primary-text-color: #C724B1 !important;
+                            }
+                      chips:
+                        - type: entity
+                          entity: cover.gordijnen_curtain
+                          tap_action:
+                            action: call-service
+                            service: cover.close_cover
+                            data: {}
+                            target:
+                              entity_id: cover.gordijnen_curtain
+                          content_info: none
+                          icon: mdi:curtains-closed
+                        - type: entity
+                          entity: cover.gordijnen_curtain
+                          content_info: none
+                          icon: mdi:pause
+                          tap_action:
+                            action: call-service
+                            service: cover.stop_cover
+                            data: {}
+                            target:
+                              entity_id: cover.gordijnen_curtain
+                        - type: entity
+                          entity: cover.gordijnen_curtain
+                          content_info: none
+                          icon: mdi:curtains
+                          tap_action:
+                            action: call-service
+                            service: cover.open_cover
+                            data: {}
+                            target:
+                              entity_id: cover.gordijnen_curtain
+                      alignment: justify
+                    - type: custom:mushroom-light-card
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      entity: light.keuken_licht
+                      name: Keuken
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lct015_huelight_5
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Keuken plafon
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lst002_huelight
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Plank 1
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lst002_huelight_2
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Plank 2
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background-color: transparent !important;
+                        max-height: 400px;
+                        overflow-y: scroll !important;
+                        --primary-text-color: #71DBD4 !important;
+                        }
+              target:
+                device_id:
+                  - 173b7b75f9550742e714c7f461073558
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  --primary-text-color: #71DBD4 !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: light.slaapkamer
+            name: Slaapkamer
+            icon: mdi:bed-king-outline
+            layout: vertical
+            secondary_info: none
+            use_light_color: true
+            show_brightness_control: false
+            collapsible_controls: false
+            fill_container: false
+            double_tap_action:
+              action: call-service
+              service: cover.toggle
+              data: {}
+              target:
+                entity_id: cover.slaapkamer_gordijnen_curtain
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              data:
+                content:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:mushroom-template-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background-color: transparent !important;
+                                }
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:vacuum-outline
+                          layout: vertical
+                          icon_color: '#00e78a'
+                          badge_icon: ''
+                        - type: custom:mushroom-template-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background-color: transparent !important;
+                                }
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:lightbulb
+                          layout: vertical
+                          fill_container: false
+                          icon_color: '#00e78a'
+                        - type: custom:mushroom-template-card
+                          primary: ''
+                          secondary: ''
+                          icon: mdi:sleep
+                          layout: vertical
+                          tap_action:
+                            action: call-service
+                            service: script.slapen
+                            data: {}
+                            target: {}
+                          icon_color: '#00e78a'
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background-color: transparent !important;
+                                }
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                    - type: entities
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            --paper-item-icon-color: #C724B1 !important;
+                            }
+                      entities:
+                        - input_datetime.wake_up_time
+                      show_header_toggle: false
+                    - type: custom:mushroom-chips-card
+                      chips:
+                        - type: entity
+                          entity: cover.slaapkamer_gordijnen
+                          tap_action:
+                            action: call-service
+                            service: cover.close_cover
+                            data: {}
+                            target:
+                              entity_id: cover.slaapkamer_gordijnen_curtain
+                          content_info: none
+                          icon: mdi:curtains-closed
+                        - type: entity
+                          entity: cover.slaapkamer_gordijnen_curtain
+                          content_info: none
+                          icon: mdi:pause
+                          tap_action:
+                            action: call-service
+                            service: cover.stop_cover
+                            data: {}
+                            target:
+                              entity_id: cover.slaapkamer_gordijnen_curtain
+                        - type: entity
+                          entity: cover.slaapkamer_gordijnen_curtain
+                          content_info: none
+                          icon: mdi:curtains
+                          tap_action:
+                            action: call-service
+                            service: cover.open_cover
+                            data: {}
+                            target:
+                              entity_id: cover.slaapkamer_gordijnen_curtain
+                      alignment: justify
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            --primary-text-color: #C724B1 !important;
+                            }
+                    - type: custom:mushroom-light-card
+                      entity: light.signify_netherlands_b_v_lct015_huelight_4
+                      fill_container: true
+                      secondary_info: none
+                      icon_type: none
+                      use_light_color: false
+                      show_brightness_control: true
+                      show_color_control: true
+                      name: Plafon
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                    - type: custom:mushroom-entity-card
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background-color: transparent !important;
+                            }
+                      entity: switch.tv
+                      icon: mdi:television-classic
+                      layout: vertical
+                      tap_action:
+                        action: toggle
+                      primary_info: none
+                      secondary_info: none
+                    - type: custom:mini-media-player
+                      entity: media_player.slaapkamer_tv
+                      toggle_power: false
+                      volume_stateless: true
+                      group: true
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background-color: transparent !important;
+                        max-height: 400px;
+                        overflow-y: scroll !important;
+                        --primary-text-color: #71DBD4 !important;
+                        }
+                size: fullscreen
+              target:
+                device_id:
+                  - 173b7b75f9550742e714c7f461073558
+            hold_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.slapen
+              data: {}
+            card_mod:
+              style: |
+                ha-card {
+                  border: 0px;
+                  --primary-text-color: #71DBD4 !important;
+                  }
+        view_layout:
+          grid-area: level
+  - theme: Backend-selected
+    title: test
+    path: test
+    type: custom:masonry-layout
+    badges: []
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-title-card
+                title: Hello {{ user }}!
+                subtitle: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-width: var(--primary-background-color);
+                      background-color: var(--primary-background-color);
+                      font-size: 20px !important;
+                      }
+                    :host {
+                      --ha-card-border-width: 0px
+                      }
+              - type: custom:weather-card
+                entity: weather.forecast_home
+                current: true
+                details: false
+                number_of_forecasts: '1'
+                forecast: false
+                hourly_forecast: false
+                card_mod:
+                  style: |
+                    ha-card  {
+                      max-height: 100px
+                      padding: 0px;
+                      background-color: transparent;
+
+                      }
+                    ha-card .current {
+                      margin: 0px
+                    }
+                    ha-card .icon.bigger {
+                      max-width: 100px;
+                      margin: -56px 40% !important;
+                    }
+                    ha-card .temp {
+                      font-size: 12px;
+                      margin: -15% 5% 0%
+                      }
+                    ha-card .tempc {
+                      font-size: 10px;
+                      margin: -19% 2% 0px;
+                      }
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                icon_color: '#C724B1'
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: 0px;
+                      background-color: var(--primary-background-color);
+                      }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:home
+              - type: custom:mushroom-template-card
+                icon_color: '#ff2975'
+                card_mod: null
+                style: |
+                  ha-card {
+                    border: 0px;
+                    background-color: var(--primary-background-color);
+                    }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:lightbulb-group-outline
+              - type: custom:mushroom-template-card
+                icon_color: '#00e78a'
+                card_mod: null
+                style: |
+                  ha-card {
+                    border: 0px;
+                    background-color: var(--primary-background-color);
+                    }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:atom
+              - type: custom:mushroom-template-card
+                icon_color: '#71DBD4'
+                card_mod: null
+                style: |
+                  ha-card {
+                    border: 0px;
+                    background-color: var(--primary-background-color);
+                    }
+                primary: ''
+                secondary: ''
+                layout: vertical
+                icon: mdi:audio-video
+        view_layout:
+          grid-area: header
+        card_mod:
+          style: |
+            ha-card {
+                border: 0px;
+                background-color: var(--primary-background-color);
+                --primary-text-color: #71DBD4 !important;
+                --secondary-text-color: #C724B1 !important;
+              }
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: ''
+                secondary: ''
+                icon: mdi:vacuum-outline
+                layout: vertical
+                icon_color: '#C724B1'
+                badge_icon: ''
+              - type: custom:mushroom-template-card
+                primary: ''
+                secondary: ''
+                icon: mdi:lightbulb
+                layout: vertical
+                fill_container: false
+                icon_color: '#71DBD4'
+              - type: custom:mushroom-template-card
+                primary: ''
+                secondary: ''
+                icon: mdi:music
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: shell_command.morning_playlist
+                  data: {}
+                  target: {}
+                icon_color: '#C724B1'
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: cover.gordijnen_curtain
+                tap_action:
+                  action: call-service
+                  service: cover.close_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains-closed
+              - type: entity
+                entity: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+              - type: entity
+                entity: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains
+                tap_action:
+                  action: call-service
+                  service: cover.open_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+            alignment: justify
+          - type: custom:mushroom-light-card
+            entity: light.woonkamer
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Woonkamer
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lct015_huelight_3
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Bank
+          - type: custom:mushroom-light-card
+            entity: light.ecodim_bv_ecodim_zigbee_3_0_light
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Tafel
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lct015_huelight_2
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Plant
+          - type: custom:mushroom-light-card
+            entity: light.twisted_filament_st64
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Lamp
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lct015_huelight
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Lampje
+          - type: custom:mushroom-light-card
+            entity: light.woonkamer
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+          - type: custom:mushroom-light-card
+            entity: light.deur
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Deur
+          - type: custom:mushroom-light-card
+            entity: light.kast
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Kast
+          - type: custom:mushroom-light-card
+            entity: light.sta_lamp
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Sta Lamp
+          - type: custom:mushroom-light-card
+            entity: light.sta_lamp_3
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Sta Lamp
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent 30%:
+              max-height: 200px;
+              overflow-y: scroll !important;
+              --primary-text-color: #71DBD4 !important;
+              }
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      }
+                primary: ''
+                secondary: ''
+                icon: mdi:vacuum-outline
+                layout: vertical
+                icon_color: '#00e78a'
+                badge_icon: ''
+              - type: custom:mushroom-template-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      }
+                primary: ''
+                secondary: ''
+                icon: mdi:lightbulb
+                layout: vertical
+                fill_container: false
+                icon_color: '#00e78a'
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+          - type: custom:mushroom-chips-card
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  --primary-text-color: #C724B1 !important;
+                  }
+            chips:
+              - type: entity
+                entity: cover.gordijnen_curtain
+                tap_action:
+                  action: call-service
+                  service: cover.close_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains-closed
+              - type: entity
+                entity: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+              - type: entity
+                entity: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains
+                tap_action:
+                  action: call-service
+                  service: cover.open_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+            alignment: justify
+          - type: custom:mushroom-light-card
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            entity: light.keuken_licht
+            name: Keuken
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lct015_huelight_5
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Keuken plafon
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lst002_huelight
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Plank 1
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lst002_huelight_2
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Plank 2
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;
+              max-height: 400px;
+              overflow-y: scroll !important;
+              --primary-text-color: #71DBD4 !important;
+              }
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      }
+                primary: ''
+                secondary: ''
+                icon: mdi:vacuum-outline
+                layout: vertical
+                icon_color: '#00e78a'
+                badge_icon: ''
+              - type: custom:mushroom-template-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      }
+                primary: ''
+                secondary: ''
+                icon: mdi:lightbulb
+                layout: vertical
+                fill_container: false
+                icon_color: '#00e78a'
+              - type: custom:mushroom-template-card
+                primary: ''
+                secondary: ''
+                icon: mdi:sleep
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: script.slapen
+                  data: {}
+                  target: {}
+                icon_color: '#00e78a'
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      }
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+          - type: entities
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  --paper-item-icon-color: #C724B1 !important;
+                  }
+            entities:
+              - input_datetime.wake_up_time
+            show_header_toggle: false
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: cover.slaapkamer_gordijnen
+                tap_action:
+                  action: call-service
+                  service: cover.close_cover
+                  data: {}
+                  target:
+                    entity_id: cover.slaapkamer_gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains-closed
+              - type: entity
+                entity: cover.slaapkamer_gordijnen_curtain
+                content_info: none
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  data: {}
+                  target:
+                    entity_id: cover.slaapkamer_gordijnen_curtain
+              - type: entity
+                entity: cover.slaapkamer_gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains
+                tap_action:
+                  action: call-service
+                  service: cover.open_cover
+                  data: {}
+                  target:
+                    entity_id: cover.slaapkamer_gordijnen_curtain
+            alignment: justify
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  --primary-text-color: #C724B1 !important;
+                  }
+          - type: custom:mushroom-light-card
+            entity: light.signify_netherlands_b_v_lct015_huelight_4
+            fill_container: true
+            secondary_info: none
+            icon_type: none
+            use_light_color: false
+            show_brightness_control: true
+            show_color_control: true
+            name: Plafon
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+          - type: custom:mushroom-entity-card
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  }
+            entity: switch.tv
+            icon: mdi:television-classic
+            layout: vertical
+            tap_action:
+              action: toggle
+            primary_info: none
+            secondary_info: none
+          - type: custom:mini-media-player
+            entity: media_player.slaapkamer_tv
+            toggle_power: false
+            volume_stateless: true
+            group: true
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;
+              max-height: 400px;
+              overflow-y: scroll !important;
+              --primary-text-color: #71DBD4 !important;
+              }
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: cover.gordijnen_curtain
+                tap_action:
+                  action: call-service
+                  service: cover.close_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains-closed
+              - type: entity
+                entity: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+              - type: entity
+                entity: cover.gordijnen_curtain
+                content_info: none
+                icon: mdi:curtains
+                tap_action:
+                  action: call-service
+                  service: cover.open_cover
+                  data: {}
+                  target:
+                    entity_id: cover.gordijnen_curtain
+            alignment: justify
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: ''
+            secondary: ''
+            icon: mdi:vacuum-outline
+            layout: vertical
+          - type: custom:mushroom-template-card
+            primary: ''
+            secondary: ''
+            icon: mdi:lightbulb
+            layout: vertical
+            fill_container: false
+          - type: custom:mushroom-template-card
+            primary: ''
+            secondary: ''
+            icon: mdi:music
+            layout: vertical
+            tap_action:
+              action: call-service
+              service: shell_command.morning_playlist
+              data: {}
+              target: {}
+      - type: custom:xiaomi-vacuum-card
+        entity: vacuum.deebot_2
+      - type: entities
+        entities:
+          - input_datetime.wake_up_time
+        show_header_toggle: false
+      - type: custom:vacuum-card
+        entity: vacuum.deebot_2
+        image: default
+      - type: entities
+        entities:
+          - input_text.gpt_prompt
+      - type: grid
+        square: false
+        columns: 1
+        cards:
+          - type: entities
+            entities:
+              - entity: input_text.gpt_prompt
+          - type: markdown
+            content: '{{ state_attr("sensor.chatgtp", "response_text") }}'
+            title: OpenAI Response
+      - initial_view: dayGridDay
+        type: calendar
+        entities:
+          - calendar.caboletnandir_gmail_com
+        theme: synthwave
+      - type: custom:apexcharts-card
+        graph_span: 24h
+        series:
+          - entity: sensor.energy_prices_average_electricity_price_today
+            attribute: prices_today
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.extracted_price_00
+        show:
+          graph: line
+        y_axis:
+          min: 0
+          max: 1
+  - theme: Backend-selected
+    title: Home
+    type: custom:masonry-layout
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:mushroom-title-card
+                title: Hello, {{ user }} !
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mushroom-template-card
+                    icon_color: '#C724B1'
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                          }
+                    primary: ''
+                    secondary: ''
+                    layout: vertical
+                    icon: mdi:home
+                  - type: custom:mushroom-template-card
+                    icon_color: '#ff2975'
+                    card_mod: null
+                    style: |
+                      ha-card {
+                        background-color: var(--primary-background-color);
+                        }
+                    primary: ''
+                    secondary: ''
+                    layout: vertical
+                    icon: mdi:lightbulb-group-outline
+                  - type: custom:mushroom-template-card
+                    icon_color: '#00e78a'
+                    card_mod: null
+                    style: |
+                      ha-card {
+                        background-color: var(--primary-background-color);
+                        }
+                    primary: ''
+                    secondary: ''
+                    layout: vertical
+                    icon: mdi:atom
+                  - type: custom:mushroom-template-card
+                    icon_color: '#71DBD4'
+                    card_mod: null
+                    style: |
+                      ha-card {
+                        background-color: var(--primary-background-color);
+                        }
+                    primary: ''
+                    secondary: ''
+                    layout: vertical
+                    icon: mdi:audio-video
+            card_mod:
+              style: |
+                ha-card {
+                    background-color: var(--primary-background-color);
+                  --primary-text-color: #71DBD4 !important;
+                  }
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                cards:
+                  - type: custom:mushroom-person-card
+                    entity: person.veenkadeos
+                    primary_info: none
+                    icon_type: entity-picture
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --spacing: 5px;
+                          }
+                  - type: custom:mushroom-person-card
+                    entity: person.eline
+                    primary_info: none
+                    icon_type: entity-picture
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --spacing: 5px;
+                          }
+                card_mod:
+                  style: |
+                    ha-card {
+                      width: 120px;
+                      }
+              - type: custom:mini-media-player
+                entity: media_player.spotify_nandir_cabolet
+                group: true
+                toggle_power: false
+                info: short
+                sound_mode: icon
+                source: icon
+                artwork: cover-fit
+                scale: '.75'
+                card_mod:
+                  style: |
+                    ha-card {
+                      
+                      }
+          - type: custom:swipe-card
+            keyboard:
+              enabled: false
+              onlyInViewport: true
+            cards:
+              - type: shopping-list
+                card_mod:
+                  style:
+                    .: |
+                      ha-card {
+                        max-height: 275px;
+                        overflow-y: scroll;
+                        background-color: var(--primary-background-color);
+                        box-shadow: 0px 0px 0px 3px var(--primary-background-color);
+                        color: #C724B1 !important;
+                        --mdc-checkbox-unchecked-color: #C724B1;
+                        --primary-text-color: #C724B1 !important;
+                        --mdc-text-field-idle-line-color: #C724B1;
+                        }
+                    ha-textfield:
+                      $: |
+                        input {
+                          color: #71DBD4 !important;
+                          }
+              - type: custom:todoist-card
+                entity: sensor.to_do_list
+                show_item_close: false
+                show_item_add: true
+                card_mod:
+                  style:
+                    .: |
+                      ha-card {
+                        max-height: 275px;
+                        overflow-y: scroll;
+                        background-color: var(--primary-background-color);
+                        box-shadow: 0px 0px 0px 3px var(--primary-background-color);
+                        color: #71DBD4 !important;
+                        --card-mod-icon-color: #C724B1;
+                        }
+                      input {
+                        background-color: var(--primary-background-color);
+                        border-color: #C724B1;
+                        }
+              - type: custom:todoist-card
+                entity: sensor.wishlist
+                show_item_close: false
+                show_item_add: true
+                use_quick_add: true
+                card_mod:
+                  style:
+                    .: |
+                      ha-card {
+                        max-height: 275px;
+                        overflow-y: scroll;
+                        background-color: var(--primary-background-color);
+                        box-shadow: 0px 0px 0px 3px var(--primary-background-color);
+                        color: #71DBD4 !important;
+                        --card-mod-icon-color: #C724B1;
+                        }
+                      input {
+                        background-color: var(--primary-background-color);
+                        border-color: #C724B1;
+                        }
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.woonkamer
+                name: Woonkamer
+                icon: mdi:bed-king-outline
+                layout: vertical
+                secondary_info: none
+                use_light_color: true
+                show_brightness_control: false
+                collapsible_controls: false
+                fill_container: false
+                double_tap_action:
+                  action: call-service
+                  service: cover.toggle
+                  data: {}
+                  target:
+                    device_id: 18e20d701cedd48c1742d274e4c304c1
+                card_mod:
+                  style: |
+                    ha-card {
+                      --primary-text-color: #71DBD4 !important;
+                      }
+              - type: custom:mushroom-light-card
+                entity: light.keuken_licht
+                name: Keuken
+                icon: mdi:bed-king-outline
+                layout: vertical
+                secondary_info: none
+                use_light_color: true
+                show_brightness_control: false
+                collapsible_controls: false
+                fill_container: false
+                double_tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --primary-text-color: #71DBD4 !important;
+                      }
+              - type: custom:mushroom-light-card
+                entity: light.slaapkamer
+                name: Slaapkamer
+                icon: mdi:bed-king-outline
+                layout: vertical
+                secondary_info: none
+                use_light_color: true
+                show_brightness_control: false
+                collapsible_controls: false
+                fill_container: false
+                double_tap_action:
+                  action: call-service
+                  service: cover.toggle
+                  data: {}
+                  target:
+                    entity_id: cover.slaapkamer_gordijnen_curtain
+                card_mod:
+                  style: |
+                    ha-card {
+                      --primary-text-color: #71DBD4 !important;
+                      }
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.gang_light
+                name: Gang
+                icon: mdi:coat-rack
+                layout: vertical
+                secondary_info: none
+                use_light_color: true
+                show_brightness_control: false
+                collapsible_controls: false
+                fill_container: false
+                double_tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --primary-text-color: #71DBD4 !important;
+                      }
+              - type: custom:mushroom-light-card
+                entity: ''
+                icon: mdi:desktop-classic
+                layout: vertical
+                secondary_info: none
+                use_light_color: true
+                show_brightness_control: false
+                collapsible_controls: false
+                fill_container: false
+                double_tap_action:
+                  action: none
+                name: Kantoor
+              - type: custom:mushroom-light-card
+                entity: light.ledvance_cla60_rgbw_z3_light
+                icon: mdi:shower
+                layout: vertical
+                secondary_info: none
+                use_light_color: true
+                show_brightness_control: false
+                collapsible_controls: false
+                fill_container: false
+                double_tap_action:
+                  action: call-service
+                  service: script.eline_haar_douche_knop
+                  data: {}
+                  target: {}
+                name: Badkamer
+                card_mod:
+                  style: |
+                    ha-card {
+                      --primary-text-color: #71DBD4 !important;
+                      }
